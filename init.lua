@@ -41,4 +41,25 @@ vim.scrolloff = 8
 vim.sidescrolloff = 8
 vim.opt.shortmess:append "c"
 
+-- COLORING
 vim.cmd [[colorscheme base16-gruvbox-material-dark-medium]]
+
+-- KEYMAPS
+local keymap = vim.api.nvim_set_keymap
+local default_opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+local wk = require('which-key')
+
+-- SPLIT NAVIGATION
+keymap("n", "<C-h>", "<cmd>wincmd h<cr>", default_opts)
+keymap("n", "<C-j>", "<cmd>wincmd j<cr>", default_opts)
+keymap("n", "<C-k>", "<cmd>wincmd k<cr>", default_opts)
+keymap("n", "<C-l>", "<cmd>wincmd l<cr>", default_opts)
+
+-- FILE BROWSER
+wk.register({
+    ["<leader>e"] = { "<cmd>NeoTreeShowToggle<cr>", "open file browser" }
+})
