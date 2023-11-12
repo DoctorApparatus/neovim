@@ -172,19 +172,18 @@ local plugins_full = {
                         return true
                     end,
                 },
-                { name = "copilot",    group_index = 2 },
+                -- { name = "copilot",    group_index = 2 },
                 { name = "path" },
-                { name = "luasnip" },
+                -- { name = "luasnip" },
                 { name = "nvim_lua" },
                 { name = "buffer" },
                 { name = "calc" },
                 { name = "emoji" },
                 { name = "treesitter" },
                 { name = "crates" },
-                { name = "tmux" },
-                { name = 'vsnip' },
-                { name = 'crates' },
-                { name = 'cmp_tabnine' }
+                -- { name = "tmux" },
+                -- { name = 'vsnip' },
+                -- { name = 'cmp_tabnine' }
             }
 
             cmp.setup {
@@ -229,7 +228,12 @@ local plugins_full = {
             end
             local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
                 .make_client_capabilities())
+
             require('lspconfig')['lua_ls'].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+            require('lspconfig')['rust_analyzer'].setup({
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
