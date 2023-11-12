@@ -41,9 +41,6 @@ vim.scrolloff = 8
 vim.sidescrolloff = 8
 vim.opt.shortmess:append "c"
 
--- COLORING
-vim.cmd [[colorscheme base16-gruvbox-material-dark-medium]]
-
 -- KEYMAPS
 local keymap = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
