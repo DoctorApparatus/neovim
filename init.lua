@@ -47,7 +47,7 @@ vim.opt.shortmess:append "c"
 -- KEYMAPS
 local keymap = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
@@ -60,3 +60,7 @@ vim.keymap.set("n", "bd", function()
     vim.cmd("bd")
     vim.cmd("NeoTreeReveal")
 end, default_opts)
+
+-- Increment / Decrement
+vim.keymap.set("n", "+", "<C-a>")
+vim.keymap.set("n", "-", "<C-x>")
