@@ -13,7 +13,7 @@ return {
         -- Additional lua configuration, makes nvim stuff amazing!
         'folke/neodev.nvim',
 
-        'RRethy/nvim-base16',
+        'DoctorApparatus/nvim-base16',
     },
     opts = {
         inlay_hints = {
@@ -26,23 +26,18 @@ return {
         require("mason-lspconfig").setup {
             ensure_installed = { "lua_ls", },
         }
-        local on_attach = function(client, bufnr)
-        end
         local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
             .make_client_capabilities())
 
         -- INFO: LSP Server
         require('lspconfig')['bashls'].setup {
             capabilities = capabilities,
-            on_attach = on_attach,
         }
         require('lspconfig')['html'].setup {
             capabilities = capabilities,
-            on_attach = on_attach,
         }
         require('lspconfig')['lua_ls'].setup({
             capabilities = capabilities,
-            on_attach = on_attach,
             settings = {
                 Lua = {
                     workspace = {
@@ -52,16 +47,23 @@ return {
             }
 
         })
-        require('lspconfig')['rust_analyzer'].setup({
+        require('lspconfig')['openscad_lsp'].setup {
             capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        }
         require('lspconfig')['tailwindcss'].setup {
             capabilities = capabilities,
-            on_attach = on_attach,
+            settings = {
+                ["rust-analyzer"] = {
+                    inlay_hints = {
+                        auto = true,
+                        show_parameter_hints = false,
+                        parameter_hints_prefix = "",
+                        other_hints_prefix = "",
+                    }
+                }
+            }
         }
         require('lspconfig')['tsserver'].setup {
-            on_attach = on_attach,
             capabilities = capabilities,
             cmd = {
                 "typescript-language-server", "--stdio"
@@ -70,6 +72,22 @@ return {
                 debounce_text_changes = 150,
             },
         }
+
+        -- INFO: Diagnostics
+        vim.diagnostic.config({
+            underline = true,
+            update_in_insert = false,
+            virtual_text = {
+                spacing = 4,
+                source = "if_many",
+                prefix = "●",
+                -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+                -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+                -- prefix = "icons",
+            },
+            severity_sort = true,
+        })
+
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             callback = function(ev)
