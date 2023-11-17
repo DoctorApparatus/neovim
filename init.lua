@@ -1,5 +1,6 @@
 -- Enable true color
 vim.opt.termguicolors = true
+vim.cmd([[set termguicolors]])
 
 require('plugins/main')
 require('autocommands/main')
