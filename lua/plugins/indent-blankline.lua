@@ -20,7 +20,7 @@ return {
             remove_blankline_trail = true,
         },
         scope = {
-            enabled = true,
+            enabled = false,
             char = nil,
             show_start = true,
             show_end = true,
