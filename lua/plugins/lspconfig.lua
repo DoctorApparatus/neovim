@@ -50,18 +50,20 @@ return {
         require('lspconfig')['openscad_lsp'].setup {
             capabilities = capabilities,
         }
+
+        -- INFO: Rust anaylzer is added via rust-tools
+        -- require('lspconfig').setup {
+        --     settings = {
+        --         ["rust-analyzer"] = {
+        --             checkOnSave = {
+        --                 command = "clippy",
+        --             },
+        --         }
+        --     }
+        -- }
+
         require('lspconfig')['tailwindcss'].setup {
             capabilities = capabilities,
-            settings = {
-                ["rust-analyzer"] = {
-                    inlay_hints = {
-                        auto = true,
-                        show_parameter_hints = false,
-                        parameter_hints_prefix = "",
-                        other_hints_prefix = "",
-                    }
-                }
-            }
         }
         require('lspconfig')['tsserver'].setup {
             capabilities = capabilities,
