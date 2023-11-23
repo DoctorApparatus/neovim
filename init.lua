@@ -56,11 +56,11 @@ vim.g.maplocalleader = " "
 keymap("i", "jk", "<ESC>", default_opts)
 keymap("t", "jk", "<C-\\><C-n>", default_opts)
 
-vim.keymap.set("n", "bd", function()
-    vim.cmd("NeoTreeClose")
-    vim.cmd("bd")
-    vim.cmd("NeoTreeReveal")
-end, default_opts)
+-- vim.keymap.set("n", "bd", function()
+--     vim.cmd("NeoTreeClose")
+--     vim.cmd("bd")
+--     vim.cmd("NeoTreeReveal")
+-- end, default_opts)
 
 -- Increment / Decrement
 vim.keymap.set("n", "+", "<C-a>")
