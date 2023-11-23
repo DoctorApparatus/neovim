@@ -81,8 +81,8 @@ return {
             triggers_blacklist = {
                 -- list of mode / prefixes that should never be hooked by WhichKey
                 -- this is mostly relevant for keymaps that start with a native binding
-                i = { "j", "k" },
-                v = { "j", "k" },
+                i = { "j", "k", "w", "b" },
+                v = { "j", "k", "w", "b" },
             },
             -- disable the WhichKey popup for certain buf types and file types.
             -- Disabled by default for Telescope
