@@ -1,0 +1,61 @@
+{
+	"Skeleton: Component": {
+		"prefix": "sklcomp",
+		"body": [
+			"import React from 'react';",
+			"",
+			"export interface ${1}Props {",
+			"   ${2}",
+			"};",
+			"",
+			"export const ${1} =(props: ${1}Props) => {",
+			"   return(",
+			"       ${0}",
+			"   );",
+			"};",
+			""
+		]
+	},
+	"try-catch-finally": {
+		"prefix": "tcf",
+		"body": [
+			"try {",
+			"   ${1}",
+			"} catch(error) {",
+			"console.error(error)",
+			"} finally {",
+			"   ",
+			"}"
+		]
+	},
+	"Interface": {
+		"prefix": "iface",
+		"body": ["export interface ${1}_i {", "   ${0}", "};"]
+	},
+	"Class": {
+		"prefix": "class",
+		"body": [
+			"class ${1} {",
+			"",
+			"   ${2}",
+			"",
+			"   constructor(${3}) {",
+			"       ${4}",
+			"   }",
+			"   ${0}",
+			"};"
+		]
+	},
+	"StyleSheet": {
+		"prefix": "styles",
+		"body": ["const styles = StyleSheet.create({", "    ${0}", "})"]
+	},
+	"Set Style": {
+		"prefix": "sstyle",
+		"body": ["style={styles.${0}}"]
+	},
+	"Add State": {
+		"prefix": "state",
+		"body": ["const [${1}, set_${1}] = useState(${2});"]
+	}
+}

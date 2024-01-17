@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "prefix": "metadata",
+        "body": [
+            "---",
+            "title: ${1}",
+            "tags: []",
+            "status: new",
+            "---"
+        ]
+    },
+    "forloop": {
+        "prefix": "for",
+        "body": [
+            "for(uint32_t counter; counter < ${1}; counter++ ) {",
+            "   ${2}",
+            "}"
+        ],
+        "description": "Add header level 1"
+    },
+    "include": {
+        "prefix": "#inc",
+        "body": [
+            "#include <${1}>"
+        ]
+    },
+    "Mermaid": {
+        "prefix": "mermaid",
+        "body": [
+            "``` mermaid",
+            "${0}",
+            "```"
+        ]
+    },
+    "Mermaid Node": {
+        "prefix": "m_node",
+        "body": [
+            "${1}[${0}]"
+        ]
+    },
+    "Mermaid Node Round": {
+        "prefix": "m_node_r",
+        "body": [
+            "${1}(${0})"
+        ]
+    },
+    "m_edge": {
+        "prefix": "m_edge",
+        "body": [
+            "${1} --> ${2}",
+            "${0}"
+        ]
+    }
+}

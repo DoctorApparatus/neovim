@@ -1,0 +1,55 @@
+{
+    "forloop": {
+        "prefix": "for",
+        "body": [
+            "for(uint32_t counter; counter < ${1}; counter++ ) {",
+            "   ${2}",
+            "}"
+        ],
+        "description": "Add header level 1"
+    },
+    "include": {
+        "prefix": "#inc",
+        "body": [
+            "#include <${1}>"
+        ]
+    },
+    "cstruct": {
+        "prefix": "cstruct",
+        "body": [
+            "struct ${1}_t{",
+            "   ${0}",
+            "};",
+            "typedef struct ${1}_t ${1};"
+        ]
+    },
+    "ifndef": {
+        "prefix": "ifndef",
+        "body": [
+            "#ifndef ${1}",
+            "#define ${1}",
+            "${0}",
+            "#endif"
+        ]
+    },
+    "define": {
+        "prefix": "define",
+        "body": [
+            "define ${1} ${2}",
+            "${0}"
+        ]
+    },
+    "function": {
+        "prefix": "func",
+        "body": [
+            "${1} ${2}(${3}) {",
+            "",
+            "   ${4}",
+            "",
+            "   ${0}",
+            "",
+            "   return ${5};",
+            "};"
+        ]
+    }
+}

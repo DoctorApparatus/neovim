@@ -1,0 +1,18 @@
+{
+    "for_in": {
+        "prefix": "for_in",
+        "body": [
+            "for ${1} in ${2}; do",
+            "\t${3}",
+            "done"
+        ]
+    },
+    "for_in_array": {
+        "prefix": "for_in_array",
+        "body": [
+            "for i in ${!${1}[@]}; do",
+            "   ${0}",
+            "done"
+        ]
+    }
+}
