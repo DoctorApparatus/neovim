@@ -2,12 +2,12 @@
 vim.opt.termguicolors = true
 vim.cmd([[set termguicolors]])
 
-require('plugins/main')
-require('autocommands/main')
+require("plugins/main")
+require("autocommands/main")
 
-vim.cmd [[set tabstop=4]]
-vim.cmd [[set shiftwidth=4]]
-vim.cmd [[set so=999]]
+vim.cmd([[set tabstop=4]])
+vim.cmd([[set shiftwidth=4]])
+vim.cmd([[set so=999]])
 
 vim.o.ls = 2
 vim.o.ch = 0
@@ -23,7 +23,7 @@ vim.opt.ignorecase = true
 vim.opt.mouse = "a"
 vim.opt.pumheight = 10
 vim.opt.showmode = false
-vim.opt.showtabline = 2
+vim.opt.showtabline = 4
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
@@ -33,8 +33,8 @@ vim.opt.timeoutlen = 1000
 vim.opt.undofile = true
 vim.opt.updatetime = 300
 vim.opt.writebackup = false
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
+vim.opt.expandtab = false
+vim.opt.tabstop = 4
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -43,7 +43,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.scrolloff = 8
 vim.sidescrolloff = 8
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 -- KEYMAPS
 local keymap = vim.api.nvim_set_keymap
