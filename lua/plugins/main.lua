@@ -42,3 +42,11 @@ for i, t in pairs(scan_plugins_dir()) do
 end
 
 require('lazy').setup(plugins_full, {})
+
+local wk = require('which-key')
+wk.register({
+    ["<space>gc"] = { "<cmd>Neogen<cr>", "generate documentation comment" },
+    ["<space>ca"] = { "<cmd>CodeActionMenu<cr>", "Open Code Action Menu" },
+    ["<space>gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
+    ["<space>gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
+})
