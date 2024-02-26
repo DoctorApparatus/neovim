@@ -38,6 +38,9 @@ return {
 		require("lspconfig")["html"].setup({
 			capabilities = capabilities,
 		})
+		require("lspconfig")["jsonls"].setup({
+			capabilities = capabilities,
+		})
 		require("lspconfig")["lua_ls"].setup({
 			capabilities = capabilities,
 			settings = {
@@ -63,6 +66,9 @@ return {
 		--     }
 		-- }
 
+		require("lspconfig")["pyright"].setup({
+			capabilities = capabilities,
+		})
 		require("lspconfig")["tailwindcss"].setup({
 			capabilities = capabilities,
 		})
@@ -81,14 +87,16 @@ return {
 		vim.diagnostic.config({
 			underline = true,
 			update_in_insert = false,
-			virtual_text = {
-				spacing = 4,
-				source = "if_many",
-				prefix = "●",
-				-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-				-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-				-- prefix = "icons",
-			},
+			-- virtual_text = {
+			-- 	spacing = 4,
+			-- 	source = "if_many",
+			-- 	prefix = "●",
+			-- 	-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+			-- 	-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+			-- 	-- prefix = "icons",
+			-- },
+			-- INFO: disabled due to lsp_lines plugins
+			virtual_text = false,
 			severity_sort = true,
 		})
 
