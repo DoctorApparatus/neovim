@@ -1,1 +1,48 @@
-{"contributes":{"snippets":[{"path":".\/markdown.json","language":["markdown","vimwiki"]},{"path":".\/c.json","language":"c"},{"path":".\/c.json","language":"cpp"},{"path":".\/typescriptreact.json","language":"typescriptreact"},{"path":".\/json.json","language":"json"},{"path":".\/sh.json","language":"sh"},{"path":".\/sh.json","language":"bash"},{"path":".\/lua.json","language":["lua"]}]},"author":"doctorapparatus","name":"nvim-snippets","engines":{"vscode":"^1.11.0"}}
+{
+	"contributes": {
+		"snippets": [
+			{
+				"path": ".\/markdown.json",
+				"language": [
+					"markdown",
+					"vimwiki"
+				]
+			},
+			{
+				"path": ".\/c.json",
+				"language": "c"
+			},
+			{
+				"path": ".\/c.json",
+				"language": "cpp"
+			},
+			{
+				"path": ".\/typescriptreact.json",
+				"language": "typescriptreact"
+			},
+			{
+				"path": ".\/json.json",
+				"language": "json"
+			},
+			{
+				"path": ".\/sh.json",
+				"language": "sh"
+			},
+			{
+				"path": ".\/sh.json",
+				"language": "bash"
+			},
+			{
+				"path": ".\/lua.json",
+				"language": [
+					"lua"
+				]
+			}
+		]
+	},
+	"author": "doctorapparatus",
+	"name": "nvim-snippets",
+	"engines": {
+		"vscode": "^1.11.0"
+	}
+}
