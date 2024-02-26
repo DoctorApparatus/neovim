@@ -1,6 +1,6 @@
 return {
-	-- 'DoctorApparatus/nvim-base16',
-	dir = "/home/doctorapparatus/Repos/nvim-base16/",
+	"RRethy/base16-nvim",
+	enabled = true,
 	config = function()
 		require("base16-colorscheme").with_config({
 			telescope = true,
@@ -14,6 +14,5 @@ return {
 			mini_completion = true,
 			neotree = true,
 		})
-		vim.cmd([[colorscheme base16-gruvbox-material-dark-medium]])
 	end,
 }
