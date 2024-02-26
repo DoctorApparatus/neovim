@@ -8,12 +8,15 @@ return {
 	},
 	config = function()
 		require("obsidian").setup({
-			workspace = {
-				name = "Vault",
-				path = "~/Vault",
-			},
-			templates = {
-				subdir = "Configs/Templates",
+			workspaces = {
+				{
+					name = "Vault",
+					path = os.getenv("HOME") .. "/Notes/Vault",
+				},
+				{
+					name = "Notes",
+					path = os.getenv("HOME") .. "/Notes/",
+				},
 			},
 		})
 	end,
