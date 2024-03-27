@@ -69,11 +69,5 @@ return {
 				},
 			},
 		})
-
-		local wk = require("which-key")
-		wk.register({
-			["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "find files" },
-			["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "find files" },
-		})
 	end,
 }

@@ -1,5 +1,6 @@
 return {
 	"pmizio/typescript-tools.nvim",
+	enabled = true,
 	config = function()
 		require("typescript-tools").setup({
 			on_attach = function(client, bufnr)

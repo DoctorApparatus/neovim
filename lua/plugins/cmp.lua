@@ -1,15 +1,11 @@
 return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
-		-- Snippet Engine & its associated nvim-cmp source
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
-		-- Adds LSP completion capabilities
 		"hrsh7th/cmp-nvim-lsp",
-		-- Adds a number of user-friendly snippets
 		"rafamadriz/friendly-snippets",
-		-- Signature help
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
@@ -94,21 +90,31 @@ return {
 					end
 					return true
 				end,
+				priority = 1000,
+				keyword_length = 1,
+			},
+			{
+				name = "buffer",
+				keyword_length = 2,
+			},
+			{
+				name = "luasnip",
+				priority = 1,
+				keyword_length = 3,
 			},
 			{ name = "path" },
 			{ name = "nvim_lua" },
-			{ name = "buffer" },
 			{ name = "calc" },
 			{ name = "emoji" },
 			{ name = "treesitter" },
-			{ name = "codeium" },
 			{ name = "obsidian" },
 			{ name = "obsidian_new" },
 			{ name = "obsidian_tags" },
 			{ name = "crates" },
 			{ name = "nvim_lsp_signature_help" },
-			{ name = "luasnip" },
-			-- { name = "copilot",    group_index = 2 },
+			-- { name = "codi" },
+			-- { name = "codeium" },
+			{ name = "copilot", group_index = 2 },
 			-- { name = "tmux" },
 			-- { name = 'vsnip' },
 			-- { name = 'cmp_tabnine' }

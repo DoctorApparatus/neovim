@@ -13,9 +13,9 @@ updated: {datetime}
 
 # {title}
 
-## Working On 🎯
-
 ## Urgent ❗
+
+## Goals 🎯
 
 ## Done 🎉
 
@@ -24,5 +24,3 @@ updated: {datetime}
 ## Focus Tasks 📝
 
 ## Interested In 💭
-
-## Rolled Over 🐌

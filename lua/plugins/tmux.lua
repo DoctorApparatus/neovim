@@ -46,36 +46,5 @@ return {
 				resize_step_y = 1,
 			},
 		})
-		local wk = require("which-key")
-
-		vim.keymap.set(
-			{ "n", "o", "x", "t" },
-			"<C-h>",
-			"<cmd>lua require('tmux').move_left()<CR>",
-			{ desc = "Select left buffer" }
-		)
-		vim.keymap.set(
-			{ "n", "o", "x", "t" },
-			"<C-j>",
-			"<cmd>lua require('tmux').move_bottom()<CR>",
-			{ desc = "Select bottom buffer" }
-		)
-		vim.keymap.set(
-			{ "n", "o", "x", "t" },
-			"<C-k>",
-			"<cmd>lua require('tmux').move_top()<CR>",
-			{ desc = "Select top buffer" }
-		)
-		vim.keymap.set(
-			{ "n", "o", "x", "t" },
-			"<C-l>",
-			"<cmd>lua require('tmux').move_right()<CR>",
-			{ desc = "Select right buffer" }
-		)
-
-		-- ["<M-h>"] = { "<cmd>:lua require('tmux').resize_left()<cr>" },
-		-- ["<M-j>"] = { "<cmd>:lua require('tmux').resize_bottom()<cr>" },
-		-- ["<M-k>"] = { "<cmd>:lua require('tmux').resize_top()<cr>" },
-		-- ["<M-l>"] = { "<cmd>:lua require('tmux').resize_right()<cr>" },
 	end,
 }

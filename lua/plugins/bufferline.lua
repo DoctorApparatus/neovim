@@ -27,14 +27,20 @@ return {
 						text = "Neo-tree",
 						highlight = "Directory",
 						text_align = "left",
+						seperator = true,
 					},
 					{
 						filetype = "Outline",
 						text = "Outline",
 						highlight = "Directory",
 						text_align = "right",
+						seperator = true,
 					},
 				},
+				diagnostics_indicator = function(count, level)
+					local icon = level:match("error") and " " or " "
+					return " " .. icon .. count
+				end,
 			},
 		})
 

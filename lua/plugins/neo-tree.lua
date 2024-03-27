@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		require("neo-tree").setup({
-			enable_git_status = false,
+			enable_git_status = true,
 			filesystem = {
 				components = {
 					harpoon_index = function(config, node, state)
@@ -34,10 +34,6 @@ return {
 					},
 				},
 			},
-		})
-		local wk = require("which-key")
-		wk.register({
-			["<leader>e"] = { "<cmd>Neotree<cr>", "open file browser" },
 		})
 	end,
 }

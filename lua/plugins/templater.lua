@@ -54,20 +54,21 @@ return {
 			local template_values = {
 				title = title,
 			}
-			local dest_path_with_filename = os.getenv("HOME") .. "/Notes/TODO/" .. date .. "-" .. title .. ".md"
+			local dest_path_with_filename = os.getenv("HOME") .. "/Notes/12-TODO/" .. date .. "-" .. title .. ".md"
 			templating.create_and_open_file_with_custom_template(
 				dest_path_with_filename,
 				template_file,
 				template_values
 			)
 		end
+
 		vim.api.nvim_create_user_command("CreateDailyTodo", function()
 			create_daily_todo()
 		end, { nargs = 0 })
 
 		local function open_recent_todo_files()
 			local format = "%Y-%m-%d"
-			local path = os.getenv("HOME") .. "/Notes/TODO/"
+			local path = os.getenv("HOME") .. "/Notes/12-TODO/"
 
 			-- Calculate today and yesterday dates
 			local today = os.date(format)
@@ -88,6 +89,30 @@ return {
 			vim.cmd("edit " .. yesterday_file)
 			vim.cmd("vsplit " .. today_file) -- This opens the yesterday file in a horizontal split. Change to `vsplit` if you prefer a vertical split.
 		end
+
+		local function open_todo_today()
+			local format = "%Y-%m-%d"
+			local path = os.getenv("HOME") .. "/Notes/12-TODO/"
+
+			-- Calculate today and yesterday dates
+			local today = os.date(format)
+			local yesterday = os.date(format, os.time() - (24 * 60 * 60)) -- Subtract one day in seconds
+
+			-- Construct file names
+			local today_file = path .. today .. "-TODO.md"
+			local yesterday_file = path .. yesterday .. "-TODO.md"
+
+			-- Check if today's file exists, if not, create it with a template
+			-- and open yesterdays for copying
+			if not vim.fn.filereadable(today_file) then
+				create_daily_todo()
+				vim.cmd("edit " .. yesterday_file)
+				vim.cmd("vsplit " .. today_file) -- This opens the yesterday file in a horizontal split. Change to `vsplit` if you prefer a vertical split.
+			else
+				vim.cmd("e " .. today_file) -- Just open today's file if it exists
+			end
+		end
+		vim.api.nvim_create_user_command("OpenTodoToday", open_todo_today, {})
 
 		-- To use this function directly or bind it to a command/keymap in Neovim
 		vim.api.nvim_create_user_command("OpenRecentTODOs", open_recent_todo_files, {})
@@ -246,8 +271,6 @@ return {
 			vim.api.nvim_buf_set_lines(0, current_line, current_line, false, lines)
 		end
 
-		vim.cmd([[colorscheme catppuccin-frappe]])
-
 		local function open_or_create_todo_by_date()
 			-- Prompt the user for a date
 			local date = vim.fn.input("Enter date (YYYY-MM-DD): ")
@@ -268,7 +291,7 @@ return {
 				title = title,
 				date = date, -- Make sure your template can handle this new variable
 			}
-			local dest_path_with_filename = os.getenv("HOME") .. "/Notes/TODO/" .. date .. "-" .. title .. ".md"
+			local dest_path_with_filename = os.getenv("HOME") .. "/Notes/12-TODO/" .. date .. "-" .. title .. ".md"
 			templating.create_and_open_file_with_custom_template(
 				dest_path_with_filename,
 				template_file,

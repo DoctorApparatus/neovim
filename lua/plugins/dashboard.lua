@@ -24,13 +24,9 @@ return {
 				header = vim.split(logo, "\n"),
                 -- stylua: ignore
                 center = {
-                    { action = "OpenRecentTODOs", desc = "TODOs", icon = "📋  ", key = "t" },
                     { action = "Telescope projects", desc = " Recent Projects", icon = "📦 ", key = "p" },
                     { action = "Telescope find_files", desc = " Find file", icon = "🔍 ", key = "f" },
-                    { action = "CreateIdea", desc = " Create Idea", icon = "💡", key = "b" },
-                    { action = "CreateInterestSpark", desc = " Create Interest Spark", icon = "✨ ", key = "i" },
                     { action = "ene | startinsert", desc = " New file", icon = "📜 ", key = "n" },
-                    { action = "Telescope oldfiles", desc = " Recent files", icon = "🕒 ", key = "r" },
                     { action = "qa", desc = " Quit", icon = "⏻  ", key = "q" },
                 },
 				footer = function()

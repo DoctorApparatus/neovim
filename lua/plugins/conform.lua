@@ -15,10 +15,9 @@ return {
 				html = { "biome" },
 				json = { "biome" },
 				yaml = { "biome" },
-				-- markdown = { "biome" },
 				graphql = { "biome" },
 				lua = { "stylua" },
-				rust = { "rustfmt" },
+				rust = { "rustfmt --edition 2021" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

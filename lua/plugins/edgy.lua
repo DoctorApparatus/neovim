@@ -1,7 +1,7 @@
 return {
 	"folke/edgy.nvim",
 	event = "VeryLazy",
-	enabled = true,
+	enabled = false,
 	opts = {
 		left = {
 			-- Neo-tree filesystem always takes half the screen height

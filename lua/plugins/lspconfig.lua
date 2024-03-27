@@ -55,17 +55,6 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- INFO: Rust anaylzer is added via rust-tools
-		-- require('lspconfig').setup {
-		--     settings = {
-		--         ["rust-analyzer"] = {
-		--             checkOnSave = {
-		--                 command = "clippy",
-		--             },
-		--         }
-		--     }
-		-- }
-
 		require("lspconfig")["pyright"].setup({
 			capabilities = capabilities,
 		})
@@ -73,29 +62,15 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- require('lspconfig')['tsserver'].setup {
-		--     capabilities = capabilities,
-		--     cmd = {
-		--         "typescript-language-server", "--stdio"
-		--     },
-		--     flags = {
-		--         debounce_text_changes = 150,
-		--     },
-		-- }
+		require("lspconfig")["markdown_oxide"].setup({
+			capabilities = capabilities, -- ensure that capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+		})
 
 		-- INFO: Diagnostics
 		vim.diagnostic.config({
 			underline = true,
-			update_in_insert = false,
-			-- virtual_text = {
-			-- 	spacing = 4,
-			-- 	source = "if_many",
-			-- 	prefix = "●",
-			-- 	-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-			-- 	-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-			-- 	-- prefix = "icons",
-			-- },
-			-- INFO: disabled due to lsp_lines plugins
+			signs = true,
+			update_in_false = false,
 			virtual_text = false,
 			severity_sort = true,
 		})
@@ -121,12 +96,11 @@ return {
 				end, opts)
 				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
 				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-				-- INFO: Replaced by code-action-menu
-				-- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 				vim.keymap.set("n", "<space>f", function()
 					vim.lsp.buf.format({ async = true })
 				end, opts)
+				-- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
 			end,
 		})
 	end,
